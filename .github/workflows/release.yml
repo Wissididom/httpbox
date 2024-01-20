@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   build:
-    name: "Release Build ${{ matrix.os }} (${{ matrix.rust }})"
+    name: "Build ${{ matrix.os }} (${{ matrix.rust }})"
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
