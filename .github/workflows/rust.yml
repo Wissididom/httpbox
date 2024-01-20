@@ -24,7 +24,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: http-box-ubuntu
+        name: http-box-ubuntu-${{ matrix.rust }}
         path: target
 
   deploy:
