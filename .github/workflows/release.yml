@@ -39,7 +39,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: http-box-ubuntu-${{ matrix.os }}-${{ matrix.rust }}
+        name: http-box-${{ matrix.os }}-${{ matrix.rust }}
         path: target
 
   create-release:
