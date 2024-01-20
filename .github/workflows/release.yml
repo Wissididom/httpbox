@@ -92,6 +92,7 @@ jobs:
         mv httpbox-windows-latest-beta httpbox-windows-beta
         mv httpbox-macos-latest-stable httpbox-macos-stable
         mv httpbox-macos-latest-beta httpbox-macos-beta
+      working-directory: release-artifacts
     - name: Create release
       uses: ncipollo/release-action@v1.13.0
       with:
