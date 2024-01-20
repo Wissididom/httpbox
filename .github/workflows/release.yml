@@ -78,7 +78,7 @@ jobs:
     - uses: actions/download-artifact@v4
       name: Download for Windows (beta)
       with:
-        name: httpbox-windows-latest-stable.exe
+        name: httpbox-windows-latest-beta.exe
         path: release-artifacts/
     - uses: actions/download-artifact@v4
       name: Download for macOS (stable)
@@ -88,15 +88,15 @@ jobs:
     - uses: actions/download-artifact@v4
       name: Download for macOS (beta)
       with:
-        name: httpbox-macos-latest-stable
+        name: httpbox-macos-latest-beta
         path: release-artifacts/
     - name: Rename artifacts
       run: |
         ls -la
         mv httpbox-ubuntu-latest-stable httpbox-ubuntu-stable
         mv httpbox-ubuntu-latest-beta httpbox-ubuntu-beta
-        mv httpbox-windows-latest-stable httpbox-windows-stable
-        mv httpbox-windows-latest-beta httpbox-windows-beta
+        mv httpbox-windows-latest-stable.exe httpbox-windows-stable.exe
+        mv httpbox-windows-latest-beta.exe httpbox-windows-beta.exe
         mv httpbox-macos-latest-stable httpbox-macos-stable
         mv httpbox-macos-latest-beta httpbox-macos-beta
       working-directory: release-artifacts
