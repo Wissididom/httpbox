@@ -38,11 +38,11 @@ jobs:
       run: cargo test --release --verbose
     - name: Rename file (Windows)
       if: startsWith(matrix.os, 'windows')
-      run: Rename-Item -Path httpbox.exe -NewName httpbox-${{ matrix.os }}-${{ matrix.rust }}.exe
+      run: Rename-Item -Path target/release/httpbox.exe -NewName httpbox-${{ matrix.os }}-${{ matrix.rust }}.exe
       shell: pwsh
     - name: Rename file (Ubuntu & macOS)
       if: startsWith(matrix.os, 'ubuntu') || startsWith(matrix.os, 'macos')
-      run: mv httpbox httpbox-${{ matrix.os }}-${{ matrix.rust }}
+      run: mv target/release/httpbox target/release/httpbox-${{ matrix.os }}-${{ matrix.rust }}
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
