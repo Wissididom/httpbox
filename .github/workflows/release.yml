@@ -40,8 +40,9 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: http-box-${{ matrix.os }}-${{ matrix.rust }}
-        path: target/release
-        exclude: httpbox.d
+        path: |
+          target/release
+          !target/release/httpbox.d
 
   create-release:
     runs-on: ubuntu-latest
