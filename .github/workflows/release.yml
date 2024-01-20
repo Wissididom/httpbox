@@ -39,14 +39,14 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: http-box-${{ matrix.os }}-${{ matrix.rust }}${{ startsWith(matrix.os, 'windows') && '.exe' || '' }}
+        name: httpbox-${{ matrix.os }}-${{ matrix.rust }}${{ startsWith(matrix.os, 'windows') && '.exe' || '' }}
         path: |
           target/release/httpbox${{ startsWith(matrix.os, 'windows') && '.exe' || '' }}
 
   create-release:
     runs-on: ubuntu-latest
     needs: build
-    if: github.ref == 'refs/heads/master'
+    # if: github.ref == 'refs/heads/master'
 
     steps:
     - name: Checkout
@@ -56,33 +56,33 @@ jobs:
     - uses: actions/download-artifact@v4
       name: Download for Ubuntu (stable)
       with:
-        name: http-box-ubuntu-latest-stable
-        path: release-artifacts/http-box-ubuntu-stable
+        name: httpbox-ubuntu-latest-stable
+        path: release-artifacts/httpbox-ubuntu-stable
     - uses: actions/download-artifact@v4
       name: Download for Ubuntu (beta)
       with:
-        name: http-box-ubuntu-latest-beta
-        path: release-artifacts/http-box-ubuntu-beta
+        name: httpbox-ubuntu-latest-beta
+        path: release-artifacts/httpbox-ubuntu-beta
     - uses: actions/download-artifact@v4
       name: Download for Windows (stable)
       with:
-        name: http-box-windows-latest-stable
-        path: release-artifacts/http-box-windows-stable
+        name: httpbox-windows-latest-stable.exe
+        path: release-artifacts/httpbox-windows-stable.exe
     - uses: actions/download-artifact@v4
       name: Download for Windows (beta)
       with:
-        name: http-box-windows-latest-stable
-        path: release-artifacts/http-box-windows-beta
+        name: httpbox-windows-latest-stable.exe
+        path: release-artifacts/httpbox-windows-beta.exe
     - uses: actions/download-artifact@v4
       name: Download for macOS (stable)
       with:
-        name: http-box-macos-latest-stable
-        path: release-artifacts/http-box-macos-stable
+        name: httpbox-macos-latest-stable
+        path: release-artifacts/httpbox-macos-stable
     - uses: actions/download-artifact@v4
       name: Download for macOS (beta)
       with:
-        name: http-box-macos-latest-stable
-        path: release-artifacts/http-box-macos-beta
+        name: httpbox-macos-latest-stable
+        path: release-artifacts/httpbox-macos-beta
     - name: Create release
       uses: ncipollo/release-action@1.13.0
       with:
