@@ -41,8 +41,7 @@ jobs:
       with:
         name: http-box-${{ matrix.os }}-${{ matrix.rust }}
         path: |
-          target/release
-          !target/release/httpbox.d
+          target/release/httpbox${{ startsWith(matrix.os, 'windows') && '.exe' || '' }}
 
   create-release:
     runs-on: ubuntu-latest
